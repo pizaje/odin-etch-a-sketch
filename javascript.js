@@ -3,7 +3,6 @@ const btn = document.querySelector("#btn");
 pixel.classList.add("pixel");
 
 let pixelcount = 16;
-console.log(btn);
 //Problem 1: Creating a variable grid of divs that can be cleared
   //Subproblem 1: Variable amounts
     //This information is from a popup
@@ -18,10 +17,18 @@ console.log(btn);
 
 //Solution:
   //Set up a button linked up to a function on click
-btn.addEventListener("click", () => {
+btn.addEventListener("click", function gridsize() {
     //The function will create a popup and save the popup's value. If it's not an integer, it will
     //run again. This variable is initialized at 16.
-    pixelcount = prompt("Grid size");
+    pixelcount = parseInt(prompt("Grid size"));
+    if (pixelcount > 100) {
+      alert("Grid sizes over 100 are unsupported");
+      gridsize();
+    }
+    if (!Number.isInteger(pixelcount)) {
+      alert("Response must include a number");
+      gridsize();
+    }
     return console.log(pixelcount);
 });
     
