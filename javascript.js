@@ -1,5 +1,5 @@
 const pixel = document.createElement("div");
-const btn = document.querySelector("#btn");
+const btn = document.querySelector("button");
 pixel.classList.add("pixel");
 
 let pixelcount = 16;
