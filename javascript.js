@@ -1,9 +1,9 @@
 const pixel = document.createElement("div");
-const btn = document.querySelector("button");
+const btn = document.querySelector("#btn");
 pixel.classList.add("pixel");
 
 let pixelcount = 16;
-
+console.log(btn);
 //Problem 1: Creating a variable grid of divs that can be cleared
   //Subproblem 1: Variable amounts
     //This information is from a popup
