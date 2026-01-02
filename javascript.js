@@ -27,9 +27,10 @@ function drawGrid(pixelcount) {
   //container
   for (let i = 0; i < pixelcount**2; i++) {
     let pixel = document.createElement("div");
-      pixel.setAttribute("style", "width: auto; height: auto; border: 3px solid black");
       pixel.classList.add("pixel");
-      container.appendChild(pixel);
+      pixel.style.width = `${700/pixelcount}px`;
+      pixel.style.height = `${700/pixelcount}px`;
+      container.appendChild(pixel);   
   }
 }
     
