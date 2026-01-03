@@ -28,8 +28,15 @@ function drawGrid(pixelcount) {
   for (let i = 0; i < pixelcount**2; i++) {
     let pixel = document.createElement("div");
       pixel.classList.add("pixel");
-      pixel.style.width = `${700/pixelcount}px`;
-      pixel.style.height = `${700/pixelcount}px`;
+      pixel.style.width = `${700/pixelcount - 2}px`;
+      pixel.style.height = `${700/pixelcount - 2}px`;
+      //Problem 2: Divs turn black when hovered over
+      //Create a function that detects hovering over objects class "pixel"
+      pixel.addEventListener("mouseenter", () => {
+        //On hover, change its color to black
+        pixel.style.backgroundColor = `black`;
+
+      })
       container.appendChild(pixel);   
   }
 }
@@ -51,9 +58,3 @@ btn.addEventListener("click", function gridsize() {
   }
   drawGrid(pixelcount);
 });
-    
-
-    
-//Problem 2: Divs turn black when hovered over
-  //Create a function that detects hovering over objects class "pixel"
-    //On hover, change its color to black
