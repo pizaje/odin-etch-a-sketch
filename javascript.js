@@ -26,16 +26,21 @@ function drawGrid(pixelcount) {
   //Run a loop value^2 times that appends pixels of width and height container.width/value to
   //container
   for (let i = 0; i < pixelcount**2; i++) {
+    Math.floor(Math.random() * 255);
     let pixel = document.createElement("div");
       pixel.classList.add("pixel");
       pixel.style.width = `${700/pixelcount - 2}px`;
       pixel.style.height = `${700/pixelcount - 2}px`;
+      pixel.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)} ${Math.floor(Math.random() * 255)} ${Math.floor(Math.random() * 255)} / 0`;
       //Problem 2: Divs turn black when hovered over
       //Create a function that detects hovering over objects class "pixel"
       pixel.addEventListener("mouseenter", () => {
-        //On hover, change its color to black
-        pixel.style.backgroundColor = `black`;
-
+        //On hover, change its color to black\
+        let opacity = parseFloat(pixel.style.backgroundColor.slice(-3, -1));
+        if (opacity < 1) {
+          opacity += .1;
+        }
+        pixel.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)} ${Math.floor(Math.random() * 255)} ${Math.floor(Math.random() * 255)} / ${opacity})`;
       })
       container.appendChild(pixel);   
   }
